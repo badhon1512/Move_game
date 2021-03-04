@@ -80,6 +80,7 @@ function keyPressed() {
     run = !run;
     document.getElementById("gameOver").innerText = "";
     if (!run) {
+      document.getElementById("gameOver").innerText = "Press Space To Continue";
       noLoop();
     } else {
       loop();
