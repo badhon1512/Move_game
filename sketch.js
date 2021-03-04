@@ -102,7 +102,7 @@ function keyPressed() {
       car.move(-45)
       
     } if(level >= 5){
-      car.move(50)
+      car.move(-50)
     }
   } else if (key == " ") {
     run = !run;
