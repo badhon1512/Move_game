@@ -14,8 +14,12 @@ class Obstacle{
     fill(255,0,0);
     rect(this.x,this.y,50,50);
   }
-  move()
+  move(level)
   {
+    this.velocity=level;
+
+
     this.y+=this.velocity;
   }
+  
 }

@@ -1,5 +1,5 @@
 
-let car,obstacle=[],range,count=0;
+let car,obstacle=[],range,count=0,level=1;
 function setup()
 {
   let canvas=createCanvas(windowWidth,600);
@@ -41,7 +41,33 @@ function draw()
 
     obstacle[i].show();
 
-    obstacle[i].move();
+   let distance= dist(obstacle[i].x+25,obstacle[i].y-50,car.x+75,car.y);
+
+   if(distance<100)
+   {
+     let life=car.lifeChange();
+     obstacle.splice(i,1);
+
+     console.log(life)
+     if(life===0)
+     {
+
+      document.getElementById("score").innerText=count*5;
+
+  
+  document.getElementById("level").innerText=level;
+  document.getElementById('gameName').textContent="";
+
+      document.getElementById("gameOver").innerText="Game Over";
+       noLoop();
+     }
+   }
+
+   //console.log(distance);
+
+    obstacle[i].move(level);
+
+    
 
     if(obstacle[i].y+50>height+100)
     {
@@ -50,10 +76,29 @@ function draw()
        count++;
      //  console.log("inside logic")
     }
+
+    
   }
+
+  if(count>2)
+  {
+    document.getElementById('gameName').textContent="";
+  }
+
+  level=Math.ceil(count/30)+1;
+
+  if(level>5)
+  {
+    level=5;
+  }
+  
+
 
 
   document.getElementById("score").innerText=count*5;
+
+  
+  document.getElementById("level").innerText=level;
   
   //console.log("count",count)
     
