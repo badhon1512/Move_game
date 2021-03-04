@@ -3,7 +3,7 @@ let car,
   range,
   count = 0,
   level = 1;
-  run = false;
+run = false;
 function setup() {
   let canvas = createCanvas(windowWidth, 900);
   canvas.style("z-index", "-1");
@@ -49,15 +49,11 @@ function draw() {
         noLoop();
       }
     }
-
-    //console.log(distance);
-
     obstacle[i].move(level * 2);
 
     if (obstacle[i].y + 50 > height + 100) {
       obstacle.splice(i, 1);
       count++;
-      //  console.log("inside logic")
     }
   }
 
@@ -74,8 +70,6 @@ function draw() {
   document.getElementById("score").innerText = count * 5;
 
   document.getElementById("level").innerText = level;
-
-  //console.log("count",count)
 }
 function keyPressed() {
   if (keyCode == RIGHT_ARROW) {
