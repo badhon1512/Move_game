@@ -5,7 +5,7 @@ let car,
   level = 1;
 run = false;
 function setup() {
-  let canvas = createCanvas(windowWidth, 900);
+  let canvas = createCanvas(windowWidth,windowHeight);
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
   car = new Car();
@@ -73,9 +73,37 @@ function draw() {
 }
 function keyPressed() {
   if (keyCode == RIGHT_ARROW) {
-    car.move(28);
+    if(level>=1 && level<2){
+      car.move(25);
+      
+    } if(level>=2 && level<3){
+      car.move(30)
+     
+    } if(level>=3 && level<4){
+      car.move(40);
+      
+    } if(level>=4 && level<5){
+      car.move(45)
+      
+    } if(level>=5){
+      car.move(50)
+    }
   } else if (keyCode == LEFT_ARROW) {
-    car.move(-28);
+    if(level>=1 && level<2){
+      car.move(-25);
+     
+    } if(level>=2 && level<3){
+      car.move(-30)
+     
+    } if(level>=3 && level<4){
+      car.move(-40);
+    
+    } if(level>=4 && level<5){
+      car.move(-45)
+      
+    } if(level >= 5){
+      car.move(-50)
+    }
   } else if (key == " ") {
     run = !run;
     document.getElementById("gameOver").innerText = "";
