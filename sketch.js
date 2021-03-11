@@ -104,7 +104,7 @@ function keyPressed() {
     } if(level >= 5){
       car.move(-50)
     }
-  } else if (key == " ") {
+  } else if (key == " " && car.life >0) {
     run = !run;
     document.getElementById("gameOver").innerText = "";
     if (!run) {
